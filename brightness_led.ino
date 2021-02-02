@@ -1,8 +1,8 @@
 int switchPin=8;
-int ledPin= 13;
+int ledPin= 11;
 boolean lastButton = LOW;
 boolean currentButton = LOW;
-boolean ledOn= false;
+int ledlevel= 0;
 void setup()
 {
   pinMode(switchPin,INPUT);
@@ -23,8 +23,10 @@ void loop()
  currentButton = debounce(lastButton);
   if(lastButton  == LOW && currentButton == HIGH)
   {
-    ledOn = !ledOn;
+    ledlevel += 51;
   }
    lastButton = currentButton;
-  digitalWrite(ledPin, ledOn);
+  if(ledlevel>255)
+    ledlevel=0;
+  analogWrite(ledPin, ledlevel);
 }
