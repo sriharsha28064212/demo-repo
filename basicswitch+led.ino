@@ -13,7 +13,7 @@ void loop()
      }
   else
      {
-       digitalWrite(ledpin, LOW);
+       digitalWrite(ledpin,LOW);
      }
 }  
 
