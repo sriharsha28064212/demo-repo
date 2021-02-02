@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 int switchPin=8;
 int ledPin= 13;
 boolean lastButton = LOW;
@@ -28,3 +29,35 @@ void loop()
    lastButton = currentButton;
   digitalWrite(ledPin, ledOn);
 }
+=======
+int switchPin=8;
+int ledPin= 13;
+boolean lastButton = LOW;
+boolean currentButton = LOW;
+boolean ledOn= false;
+void setup()
+{
+  pinMode(switchPin,INPUT);
+  pinMode(ledPin,OUTPUT);
+}
+boolean debounce(boolean last)
+{
+  boolean current = digitalRead(switchPin);
+  if (last!= current)
+  {
+    delay(5);
+    current = digitalRead(switchPin);
+  }
+  return current;
+}
+void loop()
+{
+ currentButton = debounce(lastButton);
+  if(lastButton  == LOW && currentButton == HIGH)
+  {
+    ledOn = !ledOn;
+  }
+   lastButton = currentButton;
+  digitalWrite(ledPin, ledOn);
+}
+>>>>>>> 93fd45b7881265200adb05cc573003c894531196
