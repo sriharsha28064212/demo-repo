@@ -3,7 +3,7 @@ int switchPin=8;
 int ledPin= 13;
 boolean lastButton = LOW;
 boolean currentButton = LOW;
-boolean ledOn= false;
+boolean ledOn = false;
 void setup()
 {
   pinMode(switchPin,INPUT);
